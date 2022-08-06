@@ -64,3 +64,21 @@ SELECT title
 FROM data_analyst_jobs
 WHERE UPPER(title) NOT LIKE ('%ANALYST%')
 AND UPPER(title) NOT LIKE ('%ANALYTICS%');
+
+/*Bonus Answer:
+    Internet and Software
+    Banks and Financial Services
+    Consulting and Business Services
+    Health Care
+    
+    Total 232 more than 3 weeks
+*/
+SELECT COUNT(title), domain
+FROM data_analyst_jobs
+WHERE
+     skill LIKE '%SQL%'
+     AND days_since_posting > 21
+     AND domain IS NOT NULL
+GROUP BY domain
+ORDER BY count DESC
+LIMIT 4;
