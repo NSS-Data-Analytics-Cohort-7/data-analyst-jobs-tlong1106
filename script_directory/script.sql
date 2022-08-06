@@ -54,10 +54,10 @@ WHERE review_count > 5000 AND company IS NOT NULL
 GROUP BY company
 ORDER BY avg_rating DESC, company;
 
---Q11 Answer: 757
+--Q11 Answer: 774
 SELECT COUNT(DISTINCT title)
 FROM data_analyst_jobs
-WHERE title LIKE '%nalyst%';
+WHERE UPPER(title) LIKE UPPER('%nalyst%');
 
 --Q12 Answer: 4, all have Tableau
 SELECT title
